@@ -2,8 +2,8 @@
 
 namespace R4nkt\ResourceTidier\Actions;
 
-use R4nkt\ResourceTidier\Concerns\HasParams;
 use R4nkt\ResourceTidier\Actions\Contracts\ExecutesResourceTask;
+use R4nkt\ResourceTidier\Concerns\HasParams;
 
 class NullTask implements ExecutesResourceTask
 {
