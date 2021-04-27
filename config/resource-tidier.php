@@ -19,11 +19,9 @@ return [
      *  - Second, it performs whatever tidying handler has been defined on the
      *    marked resources.
      *
-     * Parameters:
-     *  - culler: finds specific resources and marks them for tidying up at
-     *    some later point in time. Also notifies the resource owners.
-     *  - handler: finds resources marked for tidying and carries out the
-     *    specified tidying task on them.
+     * Required parameters:
+     *  - culler
+     *  - handler
      */
     'tidiers' => [
         'null-resource-tidier' => [
@@ -36,7 +34,7 @@ return [
      * Cullers find specific resources, mark them, and notify their owners of
      * some impending handler(s).
      *
-     * Required:
+     * Required parameters:
      *  - class
      *  - params:
      *     - finder
@@ -46,7 +44,7 @@ return [
      */
     'cullers' => [
         'null-resource-culler' => [
-            'class' => CullResources::class,
+            'class' => CullResources::class, /** @todo Make optional...? */
             'params' => [
                 'finder' => 'null-resource-finder',
                 'marker' => 'null-resource-marker',
@@ -60,7 +58,7 @@ return [
      * Handlers, when executed, find resources having certain attributes and
      * then perform some sort of task on/with them.
      *
-     * Required:
+     * Required parameters:
      *  - class
      *  - params:
      *     - finder
@@ -68,7 +66,7 @@ return [
      */
     'handlers' => [
         'null-resource-handler' => [
-            'class' => HandleResources::class,
+            'class' => HandleResources::class, /** @todo Make optional...? */
             'params' => [
                 'finder' => 'null-resource-finder',
                 'task' => 'null-resource-task',
@@ -76,6 +74,20 @@ return [
         ],
     ],
 
+    /**
+     * Finders find resources that meet certain criteria, either for culling or
+     * for handling.
+     *
+     * Required parameters:
+     *  - class
+     *
+     * Optional parameters:
+     *  - params
+     *     - <custom param 1>
+     *     - <custom param 2>
+     *     - <custom param ...>
+     *     - <custom param n>
+     */
     'finders' => [
         'null-resource-finder' => [
             'class' => NullFinder::class,
@@ -85,6 +97,21 @@ return [
         ],
     ],
 
+    /**
+     * Markers mark a given resource as having been culled. The idea is that
+     * enough information is stored to allow the handler's finder to
+     * successfully find any marked resources.
+     *
+     * Required parameters:
+     *  - class
+     *
+     * Optional parameters:
+     *  - params
+     *     - <custom param 1>
+     *     - <custom param 2>
+     *     - <custom param ...>
+     *     - <custom param n>
+     */
     'markers' => [
         'null-resource-marker' => [
             'class' => NullMarker::class,
@@ -94,6 +121,20 @@ return [
         ],
     ],
 
+    /**
+     * Notifiers are used to notify a resource owner that the resource has been
+     * culled and that some action will take place.
+     *
+     * Required parameters:
+     *  - class
+     *
+     * Optional parameters:
+     *  - params
+     *     - <custom param 1>
+     *     - <custom param 2>
+     *     - <custom param ...>
+     *     - <custom param n>
+     */
     'notifiers' => [
         'null-resource-notifier' => [
             'class' => NullNotifier::class,
@@ -103,6 +144,20 @@ return [
         ],
     ],
 
+    /**
+     * Tasks are executed for each culled resource during the handling stage of
+     * the tidying process.
+     *
+     * Required parameters:
+     *  - class
+     *
+     * Optional parameters:
+     *  - params
+     *     - <custom param 1>
+     *     - <custom param 2>
+     *     - <custom param ...>
+     *     - <custom param n>
+     */
     'tasks' => [
         'null-resource-task' => [
             'class' => NullTask::class,
@@ -112,6 +167,21 @@ return [
         ],
     ],
 
+    /**
+     * Unmarkers are meant to undo whatever the related marker has done,
+     * effectively removing a given resource from the group of culled
+     * resources.
+     *
+     * Required parameters:
+     *  - class
+     *
+     * Optional parameters:
+     *  - params
+     *     - <custom param 1>
+     *     - <custom param 2>
+     *     - <custom param ...>
+     *     - <custom param n>
+     */
     'unmarkers' => [
         'null-resource-unmarker' => [
             'class' => NullUnmarker::class,
