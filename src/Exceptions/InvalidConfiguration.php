@@ -50,4 +50,9 @@ class InvalidConfiguration extends Exception
     {
         throw new self("Unmarker with name, {$name}, was not found.");
     }
+
+    public static function nonexistentClass(string $name)
+    {
+        throw new self("The given class, {$name}, does not exist.");
+    }
 }

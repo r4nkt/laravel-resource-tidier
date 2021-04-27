@@ -19,6 +19,10 @@ class CullerFactory
 
         $class = $config['class'] ?? CullResources::class;
 
+        if (! class_exists($class)) {
+            InvalidConfiguration::nonexistentClass($class);
+        }
+
         return (new $class)
             ->setParams($config['params'] ?? []);
     }

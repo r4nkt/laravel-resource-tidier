@@ -19,6 +19,10 @@ class HandlerFactory
 
         $class = $config['class'] ?? HandleResources::class;
 
+        if (! class_exists($class)) {
+            InvalidConfiguration::nonexistentClass($class);
+        }
+
         return (new $class)
             ->setParams($config['params'] ?? []);
     }
