@@ -3,7 +3,6 @@
 namespace R4nkt\ResourceTidier\Tests;
 
 use R4nkt\ResourceTidier\Support\Factories\TidierFactory;
-use R4nkt\ResourceTidier\Tests\TestCase;
 use R4nkt\ResourceTidier\Tidier;
 
 class TidierTest extends TestCase
