@@ -9,7 +9,7 @@ trait HasUnmarker
 {
     protected UnmarksResource $unmarker;
 
-    protected function unmarker(): UnmarksResource
+    public function unmarker(): UnmarksResource
     {
         if (! $this->unmarker) {
             $this->unmarker = UnmarkerFactory::make($this->requiredParam('unmarker'));

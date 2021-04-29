@@ -7,8 +7,14 @@ use R4nkt\ResourceTidier\Support\Factories\MarkerFactory;
 
 trait HasMarker
 {
-    protected function marker(): MarksResource
+    protected MarksResource $marker;
+
+    public function marker(): MarksResource
     {
-        return MarkerFactory::make($this->requiredParam('marker'));
+        if (! $this->marker) {
+            $this->marker = MarkerFactory::make($this->requiredParam('marker'));
+        }
+
+        return $this->marker;
     }
 }

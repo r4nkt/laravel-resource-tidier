@@ -7,8 +7,14 @@ use R4nkt\ResourceTidier\Support\Factories\NotifierFactory;
 
 trait HasNotifier
 {
-    protected function notifier(): NotifiesResourceOwner
+    protected NotifiesResourceOwner $notifier;
+
+    public function notifier(): NotifiesResourceOwner
     {
-        return NotifierFactory::make($this->requiredParam('notifier'));
+        if (! $this->notifier) {
+            $this->notifier = NotifierFactory::make($this->requiredParam('notifier'));
+        }
+
+        return $this->notifier;
     }
 }

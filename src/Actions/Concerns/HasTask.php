@@ -7,8 +7,14 @@ use R4nkt\ResourceTidier\Support\Factories\TaskFactory;
 
 trait HasTask
 {
-    protected function task(): ExecutesResourceTask
+    protected ExecutesResourceTask $task;
+
+    public function task(): ExecutesResourceTask
     {
-        return TaskFactory::make($this->requiredParam('task'));
+        if (! $this->task) {
+            $this->task = TaskFactory::make($this->requiredParam('task'));
+        }
+
+        return $this->task;
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace R4nkt\ResourceTidier\Actions\Concerns;
+namespace R4nkt\ResourceTidier\Concerns;
 
 use R4nkt\ResourceTidier\Actions\Contracts\CullsResources;
 use R4nkt\ResourceTidier\Support\Factories\CullerFactory;
 
 trait HasCuller
 {
-    protected ?CullsResources $culler = null;
+    protected CullsResources $culler;
 
     public function culler(): CullsResources
     {

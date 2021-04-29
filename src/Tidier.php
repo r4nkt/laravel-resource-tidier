@@ -2,8 +2,8 @@
 
 namespace R4nkt\ResourceTidier;
 
-use R4nkt\ResourceTidier\Actions\Concerns\HasCuller;
-use R4nkt\ResourceTidier\Actions\Concerns\HasHandler;
+use R4nkt\ResourceTidier\Concerns\HasCuller;
+use R4nkt\ResourceTidier\Concerns\HasHandler;
 use R4nkt\ResourceTidier\Concerns\HasParams;
 use R4nkt\ResourceTidier\Contracts\TidiesResources;
 

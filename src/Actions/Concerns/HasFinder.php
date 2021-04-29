@@ -7,8 +7,14 @@ use R4nkt\ResourceTidier\Support\Factories\FinderFactory;
 
 trait HasFinder
 {
-    protected function finder(): FindsResources
+    protected FindsResources $finder;
+
+    public function finder(): FindsResources
     {
-        return FinderFactory::make($this->requiredParam('finder'));
+        if (! $this->finder) {
+            $this->finder = FinderFactory::make($this->requiredParam('finder'));
+        }
+
+        return $this->finder;
     }
 }
