@@ -22,7 +22,7 @@ class Tidier implements TidiesResources
 
     public function unmark(mixed $resource): void
     {
-        $this->unmarker()->unmark();
+        $this->unmarker()->unmark($resource);
     }
 
     public function handle(): int
