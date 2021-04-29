@@ -7,7 +7,7 @@ use R4nkt\ResourceTidier\Support\Factories\CullerFactory;
 
 trait HasCuller
 {
-    protected CullsResources $culler;
+    protected ?CullsResources $culler = null;
 
     public function culler(): CullsResources
     {

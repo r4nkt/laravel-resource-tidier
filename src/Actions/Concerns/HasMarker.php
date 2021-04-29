@@ -7,7 +7,7 @@ use R4nkt\ResourceTidier\Support\Factories\MarkerFactory;
 
 trait HasMarker
 {
-    protected MarksResource $marker;
+    protected ?MarksResource $marker = null;
 
     public function marker(): MarksResource
     {

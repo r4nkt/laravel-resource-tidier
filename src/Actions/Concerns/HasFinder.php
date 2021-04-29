@@ -7,7 +7,7 @@ use R4nkt\ResourceTidier\Support\Factories\FinderFactory;
 
 trait HasFinder
 {
-    protected FindsResources $finder;
+    protected ?FindsResources $finder = null;
 
     public function finder(): FindsResources
     {

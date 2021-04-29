@@ -7,7 +7,7 @@ use R4nkt\ResourceTidier\Support\Factories\NotifierFactory;
 
 trait HasNotifier
 {
-    protected NotifiesResourceOwner $notifier;
+    protected ?NotifiesResourceOwner $notifier = null;
 
     public function notifier(): NotifiesResourceOwner
     {

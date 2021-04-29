@@ -7,7 +7,7 @@ use R4nkt\ResourceTidier\Support\Factories\HandlerFactory;
 
 trait HasHandler
 {
-    protected HandlesResources $handler;
+    protected ?HandlesResources $handler = null;
 
     public function handler(): HandlesResources
     {

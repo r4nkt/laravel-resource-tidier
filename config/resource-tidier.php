@@ -26,6 +26,7 @@ return [
     'tidiers' => [
         'null-resource-tidier' => [
             'culler' => 'null-resource-culler',
+            'unmarker' => 'null-resource-unmarker',
             'handler' => 'null-resource-handler',
         ],
     ],
@@ -49,7 +50,6 @@ return [
                 'finder' => 'null-resource-finder',
                 'marker' => 'null-resource-marker',
                 'notifier' => 'null-resource-notifier',
-                'unmarker' => 'null-resource-unmarker',
             ],
         ],
     ],

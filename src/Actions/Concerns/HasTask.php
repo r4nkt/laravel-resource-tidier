@@ -7,7 +7,7 @@ use R4nkt\ResourceTidier\Support\Factories\TaskFactory;
 
 trait HasTask
 {
-    protected ExecutesResourceTask $task;
+    protected ?ExecutesResourceTask $task = null;
 
     public function task(): ExecutesResourceTask
     {
